@@ -9,8 +9,16 @@ app.set('views', path.join(__dirname))
 app.set('view engine', 'hbs')
 
 app.get('/', function (req, res) {
+	// Creating a date object
+    var today = new Date();
+
+    // Getting full month name (e.g. "June")
+    var month = today.toLocaleString('default', { month: 'long' });
+
+	var title = "My new title - " + month;
+
 	res.render('./views/Home', {
-		title: 'My new title',
+		title: title,
 		cards: [
 			{
 				title: 'Our Changing Planet',
